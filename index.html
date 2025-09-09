@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnomaPay - Payment Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    
+    <div id="splash" class="screen active">
+        <div class="splash-container">
+            <div class="splash-content">
+                <div class="logo-container">
+                    <svg class="logo-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        
+                        <rect width="200" height="200" rx="20" fill="#2a2a2a"/>
+                        
+                        
+                        <g transform="translate(100,80)">
+                            
+                            <rect x="-8" y="-40" width="16" height="35" rx="8" fill="#FF3333"/>
+                            
+                            <rect x="10" y="-35" width="30" height="16" rx="8" fill="#FF3333" transform="rotate(45)"/>
+                            
+                            <rect x="15" y="-8" width="35" height="16" rx="8" fill="#FF3333"/>
+                            
+                            <rect x="10" y="10" width="30" height="16" rx="8" fill="#FF3333" transform="rotate(-45)"/>
+                            
+                            <rect x="-8" y="15" width="16" height="30" rx="8" fill="#FF3333"/>
+                            
+                            <rect x="-25" y="10" width="30" height="16" rx="8" fill="#FF3333" transform="rotate(45)"/>
+                            
+                            <rect x="-50" y="-8" width="35" height="16" rx="8" fill="#FF3333"/>
+                            
+                            <rect x="-25" y="-35" width="30" height="16" rx="8" fill="#FF3333" transform="rotate(-45)"/>
+                        </g>
+                        
+                        
+                        <path d="M 60 120 Q 100 100 140 120 Q 100 140 60 120 Z" fill="#999999"/>
+                        
+                        
+                        <rect x="94" y="145" width="12" height="20" rx="2" fill="white"/>
+                    </svg>
+                </div>
+                <h1 class="main-title">AnomaPay</h1>
+                <h2 class="subtitle">Payment Solutions</h2>
+                <p class="description">
+                    Seamless payment processing with intelligent intent matching. Fast, secure, and reliable.
+                </p>
+                <button class="btn btn-primary" onclick="navigateTo('home')">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Home -->
+    <div id="home" class="screen">
+        <div class="home-container">
+            <div class="header">
+                <div class="header-content">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <button class="btn btn-ghost" onclick="navigateTo('splash')">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                            Back
+                        </button>
+                        <div class="header-logo">
+                            <svg class="header-logo-icon" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">                                
+                                <rect width="200" height="200" rx="20" fill="#2a2a2a"/>
+                                
+
+                                <g transform="translate(100,80)">
+
+                                    <rect x="-8" y="-40" width="16" height="35" rx="8" fill="#FF3333"/>
+                                    
+                                    <rect x="10" y="-35" width="30" height="16" rx="8" fill="#FF3333" transform="rotate(45)"/>
+                                    
+                                    <rect x="15" y="-8" width="35" height="16" rx="8" fill="#FF3333"/>
+                                    
+                                    <rect x="10" y="10" width="30" height="16" rx="8" fill="#FF3333" transform="rotate(-45)"/>
+                                    
+                                    <rect x="-8" y="15" width="16" height="30" rx="8" fill="#FF3333"/>
+                                    
+                                    <rect x="-25" y="10" width="30" height="16" rx="8" fill="#FF3333" transform="rotate(45)"/>
+                                    
+                                    <rect x="-50" y="-8" width="35" height="16" rx="8" fill="#FF3333"/>
+                                    
+                                    <rect x="-25" y="-35" width="30" height="16" rx="8" fill="#FF3333" transform="rotate(-45)"/>
+                                </g>
+                                
+                                
+                                <path d="M 60 120 Q 100 100 140 120 Q 100 140 60 120 Z" fill="#999999"/>
+                                
+                                
+                                <rect x="94" y="145" width="12" height="20" rx="2" fill="white"/>
+                            </svg>
+                            <h1 class="header-title">AnomaPay</h1>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="navigateTo('create')">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                        Create Payment
+                    </button>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div id="intent-list" class="intent-list">
+                   
+                </div>
+                
+                <div id="empty-state" class="empty-state" style="display: none;">
+                    <div class="empty-icon">
+                        <svg class="icon-lg" fill="none" stroke="#6b7280" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="empty-title">No intents yet</h3>
+                    <p class="empty-description">Be the first to create a payment intent and start processing!</p>
+                    <button class="btn btn-primary" onclick="navigateTo('create')">
+                        Create First Payment
+                    </button>
+                </div>
+                
+                <div id="create-another" class="text-center" style="margin-top: 2rem; display: none;">
+                    <button class="btn btn-outline" onclick="navigateTo('create')">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                        Create Another Payment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Screen -->
+    <div id="create" class="screen">
+        <div class="create-container">
+            <div class="header">
+                <div class="header-content">
+                    <button class="btn btn-ghost back-btn" onclick="navigateTo('home')">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back
+                    </button>
+                    <h1 class="header-title">Create Payment</h1>
+                </div>
+            </div>
+            
+            <div class="form-container">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">What would you like to process?</h2>
+                        <p class="card-description">Fill out the details below to create your payment and find the perfect match.</p>
+                    </div>
+                    <div class="card-content">
+                        <form id="create-form">
+                            <div class="form-group">
+                                <label class="label" for="intent-type">Payment Type</label>
+                                <select id="intent-type" class="select">
+                                    <option value="">Select a payment type</option>
+                                    <option value="Send">Transfer</option>
+                                    <option value="Service">Service</option>
+                                    <option value="Receive">Receive</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="label" for="offering">What you're sending</label>
+                                <input 
+                                    id="offering" 
+                                    class="input" 
+                                    type="text" 
+                                    placeholder="Send 100 USD to Eze in Nigeria etc"
+                                />
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="label" for="wanting">Transfer details</label>
+                                <input 
+                                    id="wanting" 
+                                    class="input" 
+                                    type="text" 
+                                    placeholder="Recipient info e.g. wallet address, banking details"
+                                />
+                            </div>
+                            
+                            <div id="preview" class="preview" style="display: none;">
+                                <h4 class="preview-title">Preview:</h4>
+                                <p id="preview-text" class="preview-text"></p>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline btn-full" onclick="navigateTo('home')">
+                                    Cancel
+                                </button>
+                                <button type="submit" id="submit-btn" class="btn btn-primary btn-full" disabled>
+                                    Post Payment
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success alert -->
+    <div id="success" class="screen">
+        <div class="success-container">
+            <div class="success-content">
+                <div class="success-icon">
+                    <svg class="icon-lg" fill="white" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                
+                <div>
+                    <h1 class="success-title">Payment Processed!</h1>
+                    <p class="success-description">
+                        Great news! Your payment intent has been successfully processed and is now live on the network.
+                    </p>
+                </div>
+                
+                <div class="details-card">
+                    <div class="detail-row">
+                        <span class="detail-label">Status:</span>
+                        <span class="detail-value status">Active</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Network:</span>
+                        <span class="detail-value">AnomaPay</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Timestamp:</span>
+                        <span class="detail-value" id="timestamp"></span>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="navigateTo('home')" style="width: 100%;">
+                        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m0 0V11a1 1 0 011-1h2a1 1 0 011 1v10m0 0h3a1 1 0 001-1V10m-11 0H9"/>
+                        </svg>
+                        Back to Home
+                    </button>
+                    
+                    <button class="btn btn-outline" onclick="navigateTo('create')" style="width: 100%;">
+                        Create Another Intent
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
